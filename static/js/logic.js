@@ -63,22 +63,22 @@ function getMag(mag) {
     }).addTo(map)
 
     let legend = L.control({
-        postion: "bottemright"
+        position: "bottomright"
     });
-
-    //Add elements to the Legend 
-    legend.onAdd = function() {
+    
+    // Add elements to the Legend 
+    legend.onAdd = function () {
         let div = L.DomUtil.create("div", "info legend");
-
-        let color = ["yellow", "oragne", "red"]
-        let grades = [-10, 2, 10]
-
-        for (let i = 0; i <grades.length; i++) {
-            div.innerHTML += "<i style='background: " + colors[i] + "'></i"
-            + grades[i] + (grades[i+1] ? "&ndash;" + grades[i + 1] + "<br>" : "+" )
+    
+        let colors = ["yellow", "orange", "red"];
+        let grades = [-10, 2, 10];
+    
+        for (let i = 0; i < grades.length; i++) {
+            div.innerHTML += "<i style='background: " + colors[i] + "'></i> " +
+                grades[i] + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
         }
-        return div 
+        return div;
     }
-
+    
     legend.addTo(map);
 });
